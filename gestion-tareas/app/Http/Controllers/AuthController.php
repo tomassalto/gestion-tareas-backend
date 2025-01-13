@@ -47,11 +47,10 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
-        // Intentar autenticar al usuario
         if (Auth::attempt($data)) {
-            $user = Auth::user(); // Obtener el usuario autenticado
-            $token = $user->createToken('main')->plainTextToken; // Generar el token
-            $roles = $user->roles->pluck('name'); // Obtener los roles del usuario
+            $user = Auth::user();
+            $token = $user->createToken('main')->plainTextToken;
+            $roles = $user->roles->pluck('name');
 
             return response()->json([
                 'user' => [
@@ -64,7 +63,7 @@ class AuthController extends Controller
             ]);
         }
 
-        // Si las credenciales no son válidas
+
         return response()->json([
             'message' => 'Email o contraseña incorrectos',
         ], 401);
@@ -82,7 +81,7 @@ class AuthController extends Controller
             'id' => $user->id,
             'dni' => $user->dni,
             'email' => $user->email,
-            'name' => $user->name ?? 'Usuario', // Ajusta según tus columnas
+            'name' => $user->name ?? 'Usuario',
             'roles' => $user->roles->pluck('name'),
         ]);
     }

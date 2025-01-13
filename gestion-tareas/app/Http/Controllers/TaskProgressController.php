@@ -9,17 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskProgressController extends Controller
 {
-    // Actualizar el progreso de un usuario en una tarea
     public function updateProgress(Request $request, Task $task)
     {
         $user = Auth::user();
 
-        // Validar la solicitud
         $validated = $request->validate([
             'is_completed' => 'required|boolean',
         ]);
 
-        // Verificar si la tarea ya está completada
         if ($task->status === 'completada') {
             return response()->json(['message' => 'No se puede modificar el progreso de una tarea finalizada.'], 400);
         }

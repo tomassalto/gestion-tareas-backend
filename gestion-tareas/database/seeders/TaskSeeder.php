@@ -35,7 +35,6 @@ class TaskSeeder extends Seeder
                 }
             }
 
-            // Crear la tarea
             $task = Task::create([
                 'title' => "Tarea {$i}",
                 'description' => "Descripción de la tarea {$i}",
