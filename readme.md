@@ -21,15 +21,17 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 
 2. Clona el repositorio frontend (si aun no lo has hecho):
 
-   ```bash
+  ```bash
    git clone https://github.com/tomassalto/sistema-gestion-tareas-frontend.git
-   cd gestion-tareas
+
+   cd sistema-gestion-tareas-frontend/template-reactjs-modernizacion
    ```
 
 3. Clona el repositorio backend:
 
-   ```bash
+  ```bash
    git clone https://github.com/tomassalto/sistema-gestion-tareas-backend.git
+
    cd sistema-gestion-tareas-backend/gestion-tareas
    ```
 
