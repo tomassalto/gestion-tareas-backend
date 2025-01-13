@@ -21,19 +21,19 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 
 2. Clona el repositorio frontend (si aun no lo has hecho):
 
-  ```bash
-   git clone https://github.com/tomassalto/sistema-gestion-tareas-frontend.git
-
-   cd sistema-gestion-tareas-frontend/template-reactjs-modernizacion
-   ```
+     ```bash
+      git clone https://github.com/tomassalto/sistema-gestion-tareas-frontend.git
+   
+      cd sistema-gestion-tareas-frontend/template-reactjs-modernizacion
+      ```
 
 3. Clona el repositorio backend:
 
-  ```bash
-   git clone https://github.com/tomassalto/sistema-gestion-tareas-backend.git
-
-   cd sistema-gestion-tareas-backend/gestion-tareas
-   ```
+     ```bash
+      git clone https://github.com/tomassalto/sistema-gestion-tareas-backend.git
+   
+      cd sistema-gestion-tareas-backend/gestion-tareas
+      ```
 
 4. Instala las dependencias de PHP:
 
