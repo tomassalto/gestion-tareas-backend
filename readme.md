@@ -33,13 +33,17 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
    cd sistema-gestion-tareas-backend/gestion-tareas
    ```
 
-4. Instala las dependencias de PHP:
+4. Tener instalada esta extension para levantar el proyecto:
+   ```bash
+   sudo apt install php-xml xampp
+   ```
+5. Instala las dependencias de PHP:
 
    ```bash
    composer install
    ```
 
-5. Copia el archivo de entorno y configúralo:
+6. Copia el archivo de entorno y configúralo:
 
    ```bash
    cp .env.example .env
@@ -47,13 +51,13 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 
    Configura las credenciales de tu base de datos en el archivo `.env`.
 
-6. Genera la clave de la aplicación:
+7. Genera la clave de la aplicación:
 
    ```bash
    php artisan key:generate
    ```
 
-7. En el archivo `.env` la configuración de la base de datos debería verse así:
+8. En el archivo `.env` la configuración de la base de datos debería verse así:
 
    ```bash
    DB_CONNECTION=mysql
@@ -64,19 +68,19 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
    DB_PASSWORD=
    ```
 
-8. Abre un programa o gestor de base de datos, como MySQL Workbench o phpMyAdmin, y crea una base de datos llamada gestion_tareas. Para lenguaje SQL la linea de comandos sería:
+9. Abre un programa o gestor de base de datos, como MySQL Workbench o phpMyAdmin, y crea una base de datos llamada gestion_tareas. Para lenguaje SQL la linea de comandos sería:
 
-   ```bash
-   CREATE DATABASE gestion_tareas;
-   ```
+```bash
+CREATE DATABASE gestion_tareas;
+```
 
-9. Ejecuta las migraciones y los seeders:
+10. Ejecuta las migraciones y los seeders:
 
-   ```bash
-   php artisan migrate --seed
-   ```
+```bash
+php artisan migrate --seed
+```
 
-10. Levanta el servidor de desarrollo:
+11. Levanta el servidor de desarrollo:
 
     ```bash
     php artisan serve
