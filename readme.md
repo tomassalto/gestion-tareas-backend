@@ -32,7 +32,7 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
    ```bash
     git clone https://github.com/tomassalto/gestion-tareas-backend.git
 
-    cd sistema-gestion-tareas-backend/gestion-tareas
+    cd gestion-tareas-backend/gestion-tareas
    ```
 
 4. Tener instalada esta extension para levantar el proyecto:
