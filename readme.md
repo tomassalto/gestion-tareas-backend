@@ -9,9 +9,9 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 - [PHP](https://www.php.net/) >= 8.2
 - [Composer](https://getcomposer.org/)
 - [Node.js](https://nodejs.org/)
-- [Xampp](https://www.apachefriends.org/es/index.html)
+- [Xampp](https://www.apachefriends.org/es/index.html) o [Docker](https://docs.docker.com/desktop/setup/install/windows-install/)
 
-## Instalación
+## Instalación con XAMPP
 
 1. Crear una carpeta dentro de la carpeta "htdocs" del Xampp. Donde clonaremos el frontend y el backend. Dejo un ejemplo debajo:
 
@@ -21,19 +21,19 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 
 2. Clona el repositorio frontend (si aun no lo has hecho):
 
-     ```bash
-      git clone https://github.com/tomassalto/sistema-gestion-tareas-frontend.git
-   
-      cd sistema-gestion-tareas-frontend/template-reactjs-modernizacion
-      ```
+   ```bash
+    git clone https://github.com/tomassalto/sistema-gestion-tareas-frontend.git
+
+    cd sistema-gestion-tareas-frontend/template-reactjs-modernizacion
+   ```
 
 3. Clona el repositorio backend:
 
-     ```bash
-      git clone https://github.com/tomassalto/sistema-gestion-tareas-backend.git
-   
-      cd sistema-gestion-tareas-backend/gestion-tareas
-      ```
+   ```bash
+    git clone https://github.com/tomassalto/gestion-tareas-backend.git
+
+    cd sistema-gestion-tareas-backend/gestion-tareas
+   ```
 
 4. Tener instalada esta extension para levantar el proyecto:
    ```bash
@@ -78,9 +78,9 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 
 10. Ejecuta las migraciones y los seeders:
 
-      ```bash
-      php artisan migrate --seed
-      ```
+    ```bash
+    php artisan migrate --seed
+    ```
 
 11. Levanta el servidor de desarrollo:
 
@@ -89,6 +89,57 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
     ```
 
 El backend estará disponible en `http://127.0.0.1:8000`.
+
+## Instalación con Docker
+
+1. Iniciar el motor de Docker
+
+2. Clonar repositorio en una nueva carpeta (donde también debe estar el repositorio frontend clonado) y cambiar a la rama "docker-container"
+
+   ```bash
+   git clone https://github.com/tomassalto/gestion-tareas-backend.git
+
+   cd gestion-tareas-backend
+
+   git switch docker-container
+   ```
+
+3. Move los archivos `docker-compose.yml` y `gestion_tareas.sql` a la carpeta principal donde clonaste los repositorios backend y frontend.
+
+4. Copia el archivo de entorno dentro de la carpeta `gestion-tareas` y configúralo:
+
+   ```bash
+   cd gestion-tareas
+
+   cp .env.example .env
+   ```
+
+   Configura las credenciales de tu base de datos en el archivo `.env`.
+
+5. En el archivo `.env` la configuración de la base de datos debería verse así:
+
+   ```bash
+   DB_CONNECTION=mysql
+   DB_HOST=db
+   DB_PORT=3306
+   DB_DATABASE=gestion_tareas
+   DB_USERNAME=user
+   DB_PASSWORD=password
+   ```
+
+6. Una vez hecho esto, y si en el repositorio frontend ya realizaste los pasos de clonar el repositorio y cambiar a la rama `docker-container`. Regresar a la carpeta principal donde estan los dos repositorios clonados y ejecutar el comando (cuidado: el readme de fronted tiene el mismo paso que este, NO realizar 2 veces)::
+
+   ```bash
+    docker-compose up --build
+   ```
+
+7. Ingresar a la URL: `http://localhost:5173/apps/template/#/register` para realizar las funcionalidades del sitio.
+
+8. Para poder ingresar a los usuarios creados automaticamente por las seeders de Laravel, abrir MySQL Workbench por ejemplo y crear una nueva conexión con los datos de la imagen, la contraseña es `password`.
+
+   [![image.png](https://i.postimg.cc/RCGR5nK3/image.png)](https://postimg.cc/hhzxVvCg)
+
+9. Buscar la tabla `users`. El primer registro creado tendrá el rol de usuario administrador y los 9 restantes tendra el rol de usuario estandar.
 
 ## Paquetes Principales
 
