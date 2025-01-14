@@ -72,15 +72,15 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 
 9. Abre un programa o gestor de base de datos, como MySQL Workbench o phpMyAdmin, y crea una base de datos llamada gestion_tareas. Para lenguaje SQL la linea de comandos sería:
 
-```bash
-CREATE DATABASE gestion_tareas;
-```
+   ```bash
+   CREATE DATABASE gestion_tareas;
+   ```
 
 10. Ejecuta las migraciones y los seeders:
 
-```bash
-php artisan migrate --seed
-```
+      ```bash
+      php artisan migrate --seed
+      ```
 
 11. Levanta el servidor de desarrollo:
 
