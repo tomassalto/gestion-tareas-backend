@@ -2,26 +2,29 @@ version: "3.9"
 services:
   backend:
     build:
-      context: ./backend/gestion-tareas
+      context: ./gestion-tareas-backend/gestion-tareas
       dockerfile: Dockerfile
     container_name: backend
     ports:
       - "8000:8000"
     volumes:
-      - ./backend/gestion-tareas:/var/www/html
+      - ./gestion-tareas-backend/gestion-tareas:/var/www/html
+      - /var/www/html/vendor
     depends_on:
       - db
 
   frontend:
     build:
-      context: ./frontend/template-reactjs-modernizacion
+      context: ./sistema-gestion-tareas-frontend/template-reactjs-modernizacion
+      dockerfile: Dockerfile
     container_name: frontend
     ports:
       - "5173:5173"
     stdin_open: true
     tty: true
     volumes:
-      - ./frontend/template-reactjs-modernizacion:/app
+      - ./sistema-gestion-tareas-frontend/template-reactjs-modernizacion:/app
+      - /app/node_modules
     depends_on:
       - backend
 
