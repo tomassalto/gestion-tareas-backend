@@ -9,9 +9,9 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 - [PHP](https://www.php.net/) >= 8.2
 - [Composer](https://getcomposer.org/)
 - [Node.js](https://nodejs.org/)
-- [Xampp](https://www.apachefriends.org/es/index.html)
+- [Xampp](https://www.apachefriends.org/es/index.html) o [Docker](https://docs.docker.com/desktop/setup/install/windows-install/)
 
-## Instalación
+## Instalación con XAMPP
 
 1. Crear una carpeta dentro de la carpeta "htdocs" del Xampp. Donde clonaremos el frontend y el backend. Dejo un ejemplo debajo:
 
@@ -21,19 +21,19 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 
 2. Clona el repositorio frontend (si aun no lo has hecho):
 
-     ```bash
-      git clone https://github.com/tomassalto/sistema-gestion-tareas-frontend.git
-   
-      cd sistema-gestion-tareas-frontend/template-reactjs-modernizacion
-      ```
+   ```bash
+    git clone https://github.com/tomassalto/sistema-gestion-tareas-frontend.git
+
+    cd sistema-gestion-tareas-frontend/template-reactjs-modernizacion
+   ```
 
 3. Clona el repositorio backend:
 
-     ```bash
-      git clone https://github.com/tomassalto/sistema-gestion-tareas-backend.git
-   
-      cd sistema-gestion-tareas-backend/gestion-tareas
-      ```
+   ```bash
+    git clone https://github.com/tomassalto/gestion-tareas-backend.git
+
+    cd gestion-tareas-backend/gestion-tareas
+   ```
 
 4. Tener instalada esta extension para levantar el proyecto:
    ```bash
@@ -74,24 +74,3 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 
    ```bash
    CREATE DATABASE gestion_tareas;
-   ```
-
-10. Ejecuta las migraciones y los seeders:
-
-      ```bash
-      php artisan migrate --seed
-      ```
-
-11. Levanta el servidor de desarrollo:
-
-    ```bash
-    php artisan serve
-    ```
-
-El backend estará disponible en `http://127.0.0.1:8000`.
-
-## Paquetes Principales
-
-- **[laravel/sanctum](https://laravel.com/docs/11.x/sanctum):** Para autenticación API.
-- **[spatie/laravel-permission](https://spatie.be/docs/laravel-permission):** Para gestión avanzada de permisos y roles.
-- **[laravel/breeze](https://laravel.com/docs/11.x/starter-kits#breeze):** Generación de código inicial para autenticación.
