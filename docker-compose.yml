@@ -1,0 +1,43 @@
+version: "3.9"
+services:
+  backend:
+    build:
+      context: ./backend/gestion-tareas
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/gestion-tareas:/var/www/html
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend/template-reactjs-modernizacion
+    container_name: frontend
+    ports:
+      - "5173:5173"
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./frontend/template-reactjs-modernizacion:/app
+    depends_on:
+      - backend
+
+  db:
+    image: mysql:8.0
+    container_name: db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gestion_tareas
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./gestion_tareas.sql:/docker-entrypoint-initdb.d/gestion_tareas.sql
+
+volumes:
+  db_data:
