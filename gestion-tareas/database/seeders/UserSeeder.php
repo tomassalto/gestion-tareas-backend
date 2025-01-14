@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
 
         foreach (range(1, 10) as $index) {
 
-            $nombre = $faker->firstName;
+            $nombre = $faker->unique()->firstName;
             $nombreNormalizado = $this->normalizarTexto($nombre);
 
 
